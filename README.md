@@ -1,71 +1,81 @@
-# mechcoder README
+# MechCoder - Your AI-powered Coding Assistant
 
-This is the README for your extension "mechcoder". After writing up a brief description, we recommend including the following sections.
+MechCoder is a powerful VSCode extension that seamlessly integrates OpenAI's ChatGPT API into your coding environment. From code generation and intelligent suggestions to error correction and refactoring, MechCoder is designed to enhance productivity and coding quality in your development workflow.
 
-## Features
+![MechCoder Banner](./assets/mechcoder-banner.png)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Key Features 🚀
 
-For example if there is an image subfolder under your extension project workspace:
+- **Code Generation**: Quickly generate code snippets based on prompts.
+- **Error Correction**: Identify and correct coding errors effortlessly.
+- **Refactoring**: Optimize and clean up code for improved readability and performance.
+- **Suggestions**: Real-time coding suggestions and completion support.
+- **Model Options**: Choose between different ChatGPT model versions for tailored responses.
 
-\!\[feature X\]\(images/feature-x.png\)
+## Installation 📥
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+To install MechCoder in your VSCode environment, follow these steps:
 
-## Requirements
+1. **Download the `.vsix` file**  
+   [Download the latest version](https://github.com/ignorantrahul/mechcoder/releases)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+2. **Install the Extension**  
+   Open your terminal and run:
 
-## Extension Settings
+   ```bash
+   code --install-extension mechcoder-<version>.vsix
+   ```
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+3. **Configure API Key and Model Version**  
+   Go to **Settings** in VSCode, search for `MechCoder`, and add:
+   - **API Key**: Your OpenAI API key
+   - **Model Version**: Select either `gpt-4` or `gpt-3.5-turbo`
 
-For example:
+## Getting Started 🌱
 
-This extension contributes the following settings:
+1. **Activate Commands**  
+   Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and search for:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+   - `MechCoder: Generate Code`
+   - `MechCoder: Correct Errors`
+   - `MechCoder: Refactor Code`
 
-## Known Issues
+2. **Use Keyboard Shortcuts**  
+   You can also assign custom keyboard shortcuts to streamline your coding process.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+3. **Explore Settings**  
+   MechCoder provides configurable settings to adjust the API key, model, and other parameters.
 
-## Release Notes
+## Commands 📜
 
-Users appreciate release notes as you update your extension.
+| Command                     | Description                            |
+| --------------------------- | -------------------------------------- |
+| `MechCoder: Generate Code`  | Generate code snippets based on input  |
+| `MechCoder: Correct Errors` | Automatically correct coding errors    |
+| `MechCoder: Refactor Code`  | Suggest improvements and optimizations |
 
-### 1.0.0
+## Requirements 📋
 
-Initial release of ...
+- **VSCode** version 1.60.0 or higher
+- **Node.js** and **npm** installed
+- **OpenAI API Key**
 
-### 1.0.1
+## Contributing 🤝
 
-Fixed issue #.
+We welcome contributions! To contribute:
 
-### 1.1.0
+1. Fork the repository and create a new branch.
+2. Make your changes and run tests.
+3. Submit a pull request for review.
 
-Added features X, Y, and Z.
+## License 📄
+
+This project is licensed under the [MIT License](LICENSE.md). You are free to use, modify, and distribute this extension.
+
+## Support and Feedback 💬
+
+If you encounter any issues, please check the [GitHub Issues](https://github.com/ignorantrahul/mechcoder/issues) page or reach out through our [support page](https://github.com/ignorantrahul/mechcoder).
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+With **MechCoder**, coding assistance is always a command away! Happy coding! 👨‍💻👩‍💻
