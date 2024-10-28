@@ -26,15 +26,15 @@ To install MechCoder in your VSCode environment, follow these steps:
    code --install-extension mechcoder-<version>.vsix
    ```
 
-3. **Configure API Key and Model Version**
+3. ## Configure API Key and Model Version
 
 To use MechCoder, you'll need an API key from OpenAI to access ChatGPT services. Follow these steps to obtain your key:
 
-## Step 1: Create an OpenAI Account
+**Step 1: Create an OpenAI Account**
 
 If you don’t already have an OpenAI account, start by signing up at [OpenAI’s website](https://platform.openai.com/signup).
 
-## Step 2: Access the API Key Section
+**Step 2: Access the API Key Section**
 
 1. Once logged in, go to the **API Keys** section directly by visiting:
 
@@ -42,19 +42,19 @@ If you don’t already have an OpenAI account, start by signing up at [OpenAI’
 
    Alternatively, click on your profile in the top-right corner of the OpenAI dashboard, then select **API Keys** from the dropdown menu.
 
-## Step 3: Generate a New API Key
+**Step 3: Generate a New API Key**
 
 1. Click on the **Create new secret key** button.
 2. OpenAI will display a unique API key—make sure to copy it, as it won’t be shown again for security reasons.
 
-## Step 4: Secure Your API Key
+**Step 4: Secure Your API Key**
 
 Your API key provides access to your OpenAI account, so handle it carefully:
 
 - **Do not share** your API key publicly or include it in version-controlled files.
 - Store it in the **MechCoder settings** within VSCode.
 
-## Step 5: Add Your API Key to MechCoder
+**Step 5: Add Your API Key to MechCoder**
 
 1. Open VSCode, then navigate to **Settings** (File > Preferences > Settings).
 2. Search for `MechCoder` and paste your API key into the **API Key** field.
