@@ -1,38 +1,44 @@
-import * as vscode from 'vscode';
-import axios from 'axios';
+// MechCoder/src/providers/chatgptApi.ts
 
-const OPENAI_API_URL = 'https://api.openai.com/v1/completions';
+import * as vscode from 'vscode';
+import OpenAI from 'openai';
+
+let openai: OpenAI | null = null;
+
+function initializeOpenAIClient(): OpenAI | null {
+    const apiKey = vscode.workspace.getConfiguration('mechcoder').get<string>('apiKey');
+    if (!apiKey) {
+        vscode.window.showErrorMessage('API key for OpenAI is not set. Please go to settings and add your API key.');
+        return null;
+    }
+
+    openai = new OpenAI({ apiKey });
+    return openai;
+}
 
 export async function callChatGPT(prompt: string): Promise<string> {
-    const apiKey = vscode.workspace.getConfiguration('mechcoder').get<string>('apiKey');
-    const modelVersion = vscode.workspace.getConfiguration('mechcoder').get<string>('modelVersion') || 'gpt-3.5-turbo';
+    if (!openai) {
+        openai = initializeOpenAIClient();
+    }
 
-    if (!apiKey) {
-        vscode.window.showErrorMessage("API key for MechCoder is not set. Please configure it in the settings.");
-        return 'Error: API key not set.';
+    const model = vscode.workspace.getConfiguration('mechcoder').get<string>('model') || 'gpt-3.5-turbo';
+
+    if (!openai) {
+        return ''; // Return early if the client is not initialized
     }
 
     try {
-        const response = await axios.post(
-            OPENAI_API_URL,
-            {
-                model: modelVersion,
-                prompt: prompt,
-                max_tokens: 200,
-                temperature: 0.7,
-            },
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`,
-                },
-            }
-        );
+        const response = await openai.chat.completions.create({
+            model,
+            messages: [{ role: 'user', content: prompt }],
+            max_tokens: 100,
+            temperature: 0.7,
+        });
 
-        return response.data.choices[0].text.trim();
+        // Ensure response and choices are defined
+        return response?.choices?.[0]?.message?.content?.trim() || '';
     } catch (error) {
-        console.error("Error calling OpenAI API:", error);
-        vscode.window.showErrorMessage("Failed to retrieve response from OpenAI.");
-        return 'Error in generating response';
+        vscode.window.showErrorMessage(`Error calling OpenAI API: ${error}`);
+        return '';
     }
 }
